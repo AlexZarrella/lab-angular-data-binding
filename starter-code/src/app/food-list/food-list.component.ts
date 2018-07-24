@@ -34,13 +34,23 @@ newFoods: Object = {};
 //     });
 //   }
 
-searchMeal(input){
-  const newArray = this.foods.filter(function(eachMeal){
-    if (eachMeal.name === input.value) {
-      newArray.push(eachMeal.name);
-      console.log(newArray);
-    }
+// searchMeal(input){
+//   const newArray = this.foods.filter(function(eachMeal){
+//     console.log(newArray);
+//     return newArray.push(eachMeal.name);
+    
+//   });
+// }
+
+addFood(name, calories, image){
+  this.foods.push({
+
+    name: name.value,
+    calories: calories.value,
+    image: image.value 
   })
+
 }
 
 }
+
