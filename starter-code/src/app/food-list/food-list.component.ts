@@ -9,30 +9,34 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
 foods: Array<any>= [];
 newFoods: Object = {};
-
+searchedFood:String = ""
+newArray:Array<any> = [];
 
   constructor() { }
 
 
   ngOnInit() {
     this.foods = foods;
+    this.newArray = foods;
   }
 
-//   searchMeal(input){
-//     // console.log("You searched for: ", input.value)
-//     this.foods.forEach(function(eachName){
-//       const newArray = eachName.name.filter(function(){
-//         console.log(eachName.name);
-//         if (eachName.name === input.value) {
-//           newArray.push(eachName);
+  searchMeal(){
+    // console.log("You searched for: ", input.value)
+    // this.foods.forEach(function(eachName){
+    //   const newArray = eachName.name.filter(function(){
+    //     console.log(eachName.name);
+    //     if (eachName.name === input.value) {
+    //       newArray.push(eachName);
   
-//         }
-//       })
+    //     }
+    //   })
+    // });
+    this.newArray = this.foods.filter((theFoodSearched) =>{
+      return theFoodSearched.name.toLowerCase().includes(this.searchedFood.toLowerCase())
 
-      
-
-//     });
-//   }
+    })
+    console.log(this.newArray);
+  }
 
 // searchMeal(input){
 //   const newArray = this.foods.filter(function(eachMeal){
@@ -41,6 +45,8 @@ newFoods: Object = {};
     
 //   });
 // }
+
+
 
 addFood(name, calories, image){
   this.foods.push({

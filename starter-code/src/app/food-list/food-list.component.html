@@ -4,7 +4,13 @@
 <h1>Today's Food Calories</h1>
 
 <div class= "searchbar">
-  <input #searchInput id= "myInput" name = "searchInput" type="text" class="searchTerm" placeholder="What are you looking for?">
+  <input (keyup)="searchMeal()" #searchInput
+        id= "myInput"
+        name = "searchInput"
+        type="text" 
+        class="searchTerm" 
+        placeholder="What are you looking for?"
+        [(ngModel)]="searchedFood">
   <button (click)="searchMeal(searchInput)" type="submit" class="searchButton">
     <i class="fa fa-search"></i>
   </button>
@@ -12,9 +18,26 @@
 
 
 
+<div class= "add-list">
+    <div class= "new-food">
+        <div>
+          <label for="food-name">Name: </label>
+          <input #foodInput id= "food-name" name="name" type="text" [(ngModel)]="newFoods.name">
+        </div>
+        <div>
+          <label for="food-calories">Calories: </label>
+          <input #calorieInput type="text" [(ngModel)]="newFoods.calories">
+        </div>
+        <div>
+          <label for="food-image">Image: </label>
+          <input #imageInput id= "food-image" type="text" [(ngModel)]="newFoods.image">
+        </div>
+      </div>
+        <button (click)="addFood(foodInput, calorieInput, imageInput)" id= "submit-btn">Add</button>
+        </div>
 
 <div class= "all-meals">
-<div *ngFor= "let oneMeal of foods" class= "one-meal">
+<div *ngFor= "let oneMeal of newArray" class= "one-meal">
 
   <img [src]="oneMeal.image" alt="">
   <span class= "one-meal-name">{{oneMeal.name}}</span>
@@ -24,19 +47,3 @@
 </div>
 </div>
 
-<div class= "new-food">
-    <div>
-      <label for="food-name">Name: </label>
-      <input #foodInput name="name" type="text" [(ngModel)]="newFoods.name">
-    </div>
-    <div>
-      <label for="food-calories">Calories: </label>
-      <input #calorieInput type="text" [(ngModel)]="newFoods.calories">
-    </div>
-    <div>
-      <label for="food-image">Image: </label>
-      <input #imageInput type="text" [(ngModel)]="newFoods.image">
-    </div>
-    
-    <button (click)="addFood(foodInput, calorieInput, imageInput)" id= "submit-btn">Add</button>
-    </div>
