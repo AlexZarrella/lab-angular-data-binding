@@ -1,3 +1,25 @@
-<p>
-  food-list works!
-</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<h1>Today's Food Calories</h1>
+
+<div class= "searchbar">
+  <input #searchInput id= "myInput" name = "searchInput" type="text" class="searchTerm" placeholder="What are you looking for?">
+  <button (click)="searchMeal(searchInput)" type="submit" class="searchButton">
+    <i class="fa fa-search"></i>
+  </button>
+</div>
+
+
+
+
+<div class= "all-meals">
+<div *ngFor= "let oneMeal of foods" class= "one-meal">
+
+  <img [src]="oneMeal.image" alt="">
+  <span class= "one-meal-name">{{oneMeal.name}}</span>
+  <span class= "one-meal-calories">{{oneMeal.calories}}</span>
+
+
+</div>
+</div>

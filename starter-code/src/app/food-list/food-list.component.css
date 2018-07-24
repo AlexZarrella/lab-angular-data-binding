@@ -1,0 +1,38 @@
+.one-meal img {
+    width: 250px;
+    height: 150px;
+}
+
+.one-meal {
+    display: flex;
+    width: 600px;
+    padding: 20px 20px;
+    border: 1px solid black;
+    margin-bottom: 1rem;
+}
+
+.one-meal-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5rem;
+    margin-right: 0.5rem;
+}
+
+.one-meal-calories {
+font-size: 14px;
+margin-top: 0.2rem;
+color: red;
+}
+
+.searchbar {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.searchbar input {
+    width: 200px;
+}
+
+h1 {
+    text-align: center;
+}
